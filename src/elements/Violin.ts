@@ -108,9 +108,3 @@ export class Violin extends StatsBase<IViolinElementProps, IViolinElementOptions
 
   static defaultRoutes = /* #__PURE__ */ { ...BarElement.defaultRoutes, ...baseRoutes };
 }
-
-declare module 'chart.js' {
-  export interface ElementOptionsByType<TType extends ChartType> {
-    violin: ScriptableAndArrayOptions<IViolinElementOptions & CommonHoverOptions, ScriptableContext<TType>>;
-  }
-}

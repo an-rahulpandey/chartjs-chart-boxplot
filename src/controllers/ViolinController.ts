@@ -8,7 +8,6 @@
   ChartConfiguration,
   LinearScale,
   CategoryScale,
-  AnimationOptions,
 } from 'chart.js';
 import { merge } from 'chart.js/helpers';
 import { asViolinStats, IBaseStats, IViolin, IViolinOptions } from '../data';
@@ -67,8 +66,7 @@ export interface ViolinControllerDatasetOptions
   extends ControllerDatasetOptions,
     IViolinOptions,
     ScriptableAndArrayOptions<IViolinElementOptions, 'violin'>,
-    ScriptableAndArrayOptions<CommonHoverOptions, 'violin'>,
-    AnimationOptions<'violin'> {}
+    ScriptableAndArrayOptions<CommonHoverOptions, 'violin'> {}
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface IViolinChartOptions {}

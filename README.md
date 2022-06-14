@@ -39,13 +39,13 @@ four new types: `boxplot` and `violin`.
 
 The config can be done on a per dataset `.data.datasets[0].minStats` or for all datasets under the controllers name. e.g., `.options.boxplot.datasets.minStats`.
 
-see https://github.com/sgratzl/chartjs-chart-boxplot/blob/dev/src/data.ts#L100-L147
+see https://github.com/sgratzl/chartjs-chart-boxplot/blog/dev/src/data.ts#L100-L147
 
 ## Data structure
 
 Both types support that the data is given as an array of numbers `number[]`. The statistics will be automatically computed. In addition, specific summary data structures are supported:
 
-see https://github.com/sgratzl/chartjs-chart-boxplot/blob/dev/src/data.ts#L24-L49
+see https://github.com/sgratzl/chartjs-chart-boxplot/blog/dev/src/data.ts#L24-L49
 
 ## Tooltips
 
@@ -83,15 +83,15 @@ The ESM build of the library supports tree shaking thus having no side effects. 
 Variant A:
 
 ```js
-import { Chart, LinearScale, CategoryScale } from 'chart.js';
-import { BoxPlotController, BoxAndWiskers } from '@sgratzl/chartjs-chart-boxplot';
+import Chart from 'chart.js';
+import { BoxPlotController } from '@sgratzl/chartjs-chart-boxplot';
 
 // register controller in chart.js and ensure the defaults are set
-Chart.register(BoxPlotController, BoxAndWiskers, LinearScale, CategoryScale);
+Chart.register(BoxPlotController);
 ...
 
 new Chart(ctx, {
-  type: 'boxplot',
+  type: BoxPlotController.id,
   data: [...],
 });
 ```
@@ -110,8 +110,10 @@ new BoxPlotChart(ctx, {
 
 ```sh
 npm i -g yarn
+yarn set version 2
+cat .yarnrc_patch.yml >> .yarnrc.yml
 yarn install
-yarn sdks vscode
+yarn pnpify --sdk vscode
 ```
 
 ### Common commands
@@ -123,6 +125,8 @@ yarn lint
 yarn fix
 yarn build
 yarn docs
+yarn release
+yarn release:pre
 ```
 
 ## Credits
